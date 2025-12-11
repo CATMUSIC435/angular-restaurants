@@ -1,0 +1,23 @@
+<div class="w-full">
+
+    <!-- Row: First + Last Name -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        <input type="text" [(ngModel)]="form.firstName" placeholder="First Name*" class="input-box" />
+
+        <input type="text" [(ngModel)]="form.lastName" placeholder="Last Name*" class="input-box" />
+    </div>
+
+    <!-- Email Subject -->
+    <div class="mb-4">
+        <input type="text" [(ngModel)]="form.subject" placeholder="Email Subject*" class="input-box w-full" />
+    </div>
+
+    <!-- Message -->
+    <div class="mb-4">
+        <textarea [(ngModel)]="form.message" placeholder="Message..." rows="6"
+            class="input-box w-full resize-none"></textarea>
+    </div>
+    <div class="flex justify-center mt-12">
+        <button type="button" class="rounded-full bg-black text-white px-16 py-3 text-md font-bold"> SUBMIT FORM </button>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="w-full max-w-md mx-auto p-4">
+  <!-- Title -->
+  <div class="text-center md:text-left">
+    <button type="button" class="mx-auto px-8 py-2 bg-black text-white text-xl font-bold mb-4 rounded-full">
+      {{ title }}
+    </button>
+  </div>
+
+  <!-- Items -->
+  <div class="flex items-center justify-between py-2 border-b border-gray-200" *ngFor="let item of items">
+
+    <!-- Tên món -->
+    <span class="font-medium">
+      {{ item.name }}
+    </span>
+
+    <!-- Dấu chấm -->
+    <span class="flex flex-1 mx-2 overflow-hidden">
+      <span *ngFor="let d of [].constructor(20)" class="mx-[1px] rounded-full h-1 w-1"
+        [ngStyle]="{ 'background-color': dotColor }">
+      </span>
+    </span>
+
+    <!-- Giá -->
+    <span class="font-extrabold">
+      ${{ item.price }}
+    </span>
+  </div>
+</div>
