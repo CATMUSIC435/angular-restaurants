@@ -2,6 +2,7 @@
   "name": "angular-health",
   "version": "0.0.0",
   "scripts": {
+    "vercel-build": "npm install --legacy-peer-deps && ng build",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
