@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 interface Song {
   title: string;
@@ -11,7 +11,7 @@ interface Song {
   imports: [CommonModule],
   templateUrl: './music-player.html',
 })
-export class MusicPlayerComponent {
+export class MusicPlayerComponent implements AfterViewInit {
 
   @ViewChild('audioPlayer') audioPlayer!: ElementRef<HTMLAudioElement>;
 
@@ -36,13 +36,21 @@ export class MusicPlayerComponent {
   playSong(index: number) {
     this.currentIndex = index;
     const audio = this.audioPlayer.nativeElement;
+
     audio.src = this.playlist[index].url;
+    audio.currentTime = 0;
+
     audio.play();
     this.isPlaying = true;
   }
 
   togglePlay() {
     const audio = this.audioPlayer.nativeElement;
+
+    if (!audio.src) {
+      audio.src = this.playlist[this.currentIndex].url;
+    }
+
     this.isPlaying ? audio.pause() : audio.play();
     this.isPlaying = !this.isPlaying;
   }
@@ -68,4 +76,23 @@ export class MusicPlayerComponent {
     const audio = this.audioPlayer.nativeElement;
     audio.currentTime = event.target.value;
   }
+
+  formatTime(sec: number): string {
+    if (!sec || isNaN(sec)) return '00:00';
+
+    const minutes = Math.floor(sec / 60);
+    const seconds = Math.floor(sec % 60);
+
+    // luôn đảm bảo 2 số
+    const m = minutes < 10 ? '0' + minutes : minutes;
+    const s = seconds < 10 ? '0' + seconds : seconds;
+
+    return `${m}:${s}`;
+  }
+
+  ngAfterViewInit() {
+    const audio = this.audioPlayer.nativeElement;
+    audio.src = this.playlist[0].url;   // gán bài đầu tiên
+  }
+
 }

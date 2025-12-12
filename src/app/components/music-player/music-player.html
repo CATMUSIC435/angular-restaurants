@@ -1,5 +1,5 @@
 <!-- Floating Toggle Button -->
-<button (click)="togglePopup()"
+<button type="button" (click)="togglePopup()"
     class="fixed bottom-5 right-5 bg-gradient-to-r from-indigo-500 to-purple-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-3xl hover:scale-110 transition-all duration-300">
     🎧
 </button>
@@ -33,17 +33,17 @@
 
     <!-- Controls -->
     <div class="flex justify-center items-center gap-6 mt-3">
-        <button (click)="prev()"
+        <button type="button" (click)="prev()"
             class="text-xl bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-300 active:scale-90 transition">
             ⏮
         </button>
 
-        <button (click)="togglePlay()"
+        <button type="button" (click)="togglePlay()"
             class="text-3xl bg-indigo-500 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-indigo-600 active:scale-95 transition">
             {{ isPlaying ? '⏸' : '▶️' }}
         </button>
 
-        <button (click)="next()"
+        <button type="button" (click)="next()"
             class="text-xl bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-300 active:scale-90 transition">
             ⏭
         </button>
@@ -54,8 +54,8 @@
         <span class="text-gray-500 w-10 text-right">{{ currentTime | number:'1.0-0' }}s</span>
 
         <input type="range" class="w-full accent-indigo-500 cursor-pointer" [value]="currentTime" [max]="duration"
-            (input)="seek($event)" />
+            (input)="seek($event)" >
 
-        <span class="text-gray-500 w-10">{{ duration | number:'1.0-0' }}s</span>
+        <span class="text-gray-500 w-10">{{ formatTime(duration) }}s</span>
     </div>
 </div>
