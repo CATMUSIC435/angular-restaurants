@@ -12,4 +12,15 @@ export const routes: Routes = [
                   },
             },
       },
+         {
+            path: 'presentation',
+            loadComponent: () =>
+                  import('./pages/presentation/presentation').then(m => m.PresentationComponent),
+            data: {
+                  seo: {
+                        title: 'presentation Page - My App',
+                        description: 'Welcome to our presentation page.',
+                  },
+            },
+      },
 ];

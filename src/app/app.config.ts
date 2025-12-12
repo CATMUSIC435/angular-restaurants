@@ -6,6 +6,9 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { LUCIDE_ICONS, LucideIconProvider, House, Menu, Star, StarIcon } from 'lucide-angular';
 import { SeoService } from './services/seo';
 
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeuix/themes/aura';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -16,6 +19,9 @@ export const appConfig: ApplicationConfig = {
       useFactory: (seo: SeoService) => seo.init(),
       deps: [SeoService],
     },
+    providePrimeNG({
+       theme: { preset: Aura, options: { darkModeSelector: '.p-dark' } },
+    }),
     { provide: LUCIDE_ICONS, multi: true, useValue: new LucideIconProvider({ House, Menu, Star, StarIcon }) },
   ]
 };

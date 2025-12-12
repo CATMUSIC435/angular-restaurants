@@ -1,0 +1,13 @@
+<div class="h-full w-full">
+    <div class="h-screen md:h-auto py-36 md:py-0 ">
+        <p-carousel [value]="products" [numVisible]="1" [numScroll]="1" [circular]="true"
+            [responsiveOptions]="responsiveOptions">
+            <ng-template let-product #item>
+                <div class="w-full flex justify-center items-center">
+                    <img [src]="product" class="h-auto md:h-screen w-full" alt="" [srcset]="product">
+                </div>
+            </ng-template>
+        </p-carousel>
+    </div>
+
+</div>

@@ -6,7 +6,6 @@ import { isPlatformBrowser } from '@angular/common';
 
 gsap.registerPlugin(ScrollTrigger);
 
-import { RouterOutlet } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
 import { SmoothieList } from '../../components/smoothie-list/smoothie-list';
 import { ContactFormComponent } from '../../components/contact-form/contact-form';
