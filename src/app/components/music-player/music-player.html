@@ -51,11 +51,11 @@
 
     <!-- Progress Bar -->
     <div class="flex items-center gap-2 text-sm mt-4">
-        <span class="text-gray-500 w-10 text-right">{{ currentTime | number:'1.0-0' }}s</span>
+        <span class="text-gray-500 w-10 text-right">{{formatTime(currentTime)}}</span>
 
         <input type="range" class="w-full accent-indigo-500 cursor-pointer" [value]="currentTime" [max]="duration"
             (input)="seek($event)" >
 
-        <span class="text-gray-500 w-10">{{ formatTime(duration) }}s</span>
+        <span class="text-gray-500 w-10">{{ formatTime(duration) }}</span>
     </div>
 </div>
